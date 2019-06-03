@@ -1,4 +1,3 @@
-# bastion
 What is Bastion host:
 =====================
 
