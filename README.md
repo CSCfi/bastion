@@ -1,6 +1,8 @@
 # bastion
+What is Bastion host:
+=====================
 
-Role Name
+Usage
 =========
 
 A brief description of the role goes here.
