@@ -61,14 +61,15 @@ by following way.
 
 Usages
 =========
+```
 $ ssh -F ssh.config internal_server1
 [internal_user1@internal_server1 ~]$
-
+```
 Similarly, to connect to the second server.
-
+```
 $ ssh -F ssh.config internal_server2
 [internal_user2@internal_server2 ~]$
-
+```
 And this way, we can ssh other system in the internal network, just we need to edit
 ssh.config file and add the internal systems information there.
 
