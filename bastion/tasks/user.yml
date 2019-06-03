@@ -1,0 +1,7 @@
+---
+- name: adding users.
+  user: 
+     name: "{{ item.name }}"
+     create_home: yes
+  with_items: "{{ user }}"
+# user.yml 

@@ -1,0 +1,5 @@
+---
+- user:
+   - { name: khabir }
+   - { name: masum }
+   - { name: uddin }
