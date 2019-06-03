@@ -22,13 +22,13 @@ connect our internal servers through bastion server.
 
 first of all, we need netcat installed in our bastion server.
 On rpm based system we can install nc by
-
+```
 $ sudo yum install -y nc
-
+```
 On the other hand, on deb based systems (debian, ubuntu) we can do following.
-
+```
 $ sudo apt-get install -y nc
-
+```
 Once, nc is installed, we need a ssh config file, which openssh client
 will use when connecting to remote servers through bastion host.
 An example of a fictitious ssh.config file can be following.
@@ -80,9 +80,9 @@ We will use two methods to access webpages through the bastion host.
 1. ssh local port forwarding.
 We can use ssh local port forwarding technique to access web pages through bastion
 host. To do that, we need to do following on local machine.
-
+```
 $ ssh -L 8080:localhost:80 -F ssh.config internal_server1
-
+```
 Then we need to browse http:localhost:8080 in our browser which will go through
 bastion host to destination, internal_server1.
 
@@ -92,9 +92,9 @@ We will make our bastion host to accept port forwarding. Any port forwarding
 through bastion will be forwarded to destination host.
 
 In the local machines, we run following.
-
+```
 $ ssh -D 1080 bastion.example.com
-
+```
 Now we have to configure our browser's proxy setting. In firefox,
 We will tick Manual proxy configuration. We will only put "localhost"
 in the SOCKS Host field and port 1080. We will not touch any other field.
