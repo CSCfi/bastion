@@ -35,7 +35,7 @@ An example of a fictitious ssh.config file can be following.
 
 ssh.config
 =========
-
+<verbatim>
 Host internal_server1
 HostName 192.168.1.33
 User internal_user1
@@ -45,7 +45,7 @@ Host internal_server2
 HostName 192.168.1.48
 User internal_user2
 ProxyCommand ssh -q user@bashtion.example.com nc %h %p
-
+</verbatim>
 Explanation of the each options.
 =========
 Host: is the keyword.
