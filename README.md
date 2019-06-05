@@ -68,6 +68,7 @@ by following way.
 
 Usages
 =========
+Now time to access internal servers through bastion host. To do so we do following.
 ```
 $ ssh -F ssh.config internal_server1
 [internal_user1@internal_server1 ~]$
@@ -110,10 +111,6 @@ We need also set Firefox to use the DNS through that proxy.
 Type in about:config in the Firefox address bar
 Find the key called "network.proxy.socks_remote_dns" and set it to true
 
-The SOCKS proxy will stop working when we close our SSH session. We will need to change
-these settings back to normal in order for Firefox to work again.
-To make other programs use our SSH proxy server, we will need to configure each program in a similar way.
-
 Now we can browse http://internal_server1 in our browser.
 
 This way we can access all of our internal host and browse all of our
@@ -121,7 +118,8 @@ internal webservers.
 
 Creating a host into a bastion host using ansible.
 =======
-We need to first clone the repository.
+We can make a host into bastion host easily. We can use ansible to automate our all settings.
+To make a host into bastion host, we need to first clone the repository.
 ```
 [cloud-user@test bastion]$ git clone https://github.com/khabiruddin/bastion.git
 [cloud-user@test bastion]$ ls
@@ -144,6 +142,7 @@ ztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4u
 # vars file for bastion
 [cloud-user@test vars]$
 ```
+Similarly, we can put multiple username and corresponding public key in the same file.
 Ansible will read the username and public key from this file.
 Now we will run the ansible-playbook. 
 ```
@@ -151,8 +150,20 @@ Now we will run the ansible-playbook.
 ```
 This will make this host a bastion host. Through this bastion host we can access internal machine.
 For that we need to download ssh.config file in our local machine from git repo and then from the 
-local machine we do the following.
+local machine we do the following. If in the ssh.config file has following settings
+```
+Host internal_server1
+HostName 192.168.1.33
+User internal_user1
+ProxyCommand ssh -q khabir@bashtion.example.com nc %h %p
+```
+then we can connect our internal_server1 though the bastion.example.com. 
+```
 [local-user@local-machine /home]$ ssh -F ssh.config internal_server1
+[internal_user1@internal_server1 /home/internal_user1] $
+```
+
+
  
 
 
