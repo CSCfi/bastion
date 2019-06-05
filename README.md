@@ -8,9 +8,9 @@ Bastion host itself normally has limited port open. Only required services
 are run in an bastion host to limit attackers hack the bastion host as
 well as internal systems.
 
-We will use bastion host, so that through the bastion host we can connect
-to our internal servers.
-It has couple of advantages. first one is, it saves the floating ip address.
+We will create a bastion host, so that through the bastion host we can connect
+to our internal servers. It has couple of advantages. 
+First one is, it saves the floating ip address.
 Then later is, internal server does not need floating ip address to connect to them.
 
 More info can be found on bastion host on https://en.wikipedia.org/wiki/Bastion_host
@@ -29,11 +29,13 @@ On the other hand, on deb based systems (debian, ubuntu) we can do following.
 ```
 $ sudo apt-get install -y nc
 ```
-Once, nc is installed, we need a ssh config file, which openssh client
-will use when connecting to remote servers through bastion host.
-An example of a fictitious ssh.config file can be following.
+Once, nc is installed, we need a ssh config file, openssh client
+will use this ssh.config file when connecting to remote servers through bastion host.
+
 Also one predefined ssh.conf file included with this git repository. 
 Please edit this file accordingly, before using.
+
+An example of a fictitious ssh.config file can be following.
 
 ssh.config
 =========
@@ -103,7 +105,7 @@ $ ssh -D 1080 bastion.example.com
 Now we have to configure our browser's proxy setting. In firefox,
 We will tick Manual proxy configuration. We will only put "localhost"
 in the SOCKS Host field and port 1080. We will not touch any other field.
-We need also set Firefox to use the DNS through that proxy, so even our DNS ... lookups are secure:
+We need also set Firefox to use the DNS through that proxy.
 
 Type in about:config in the Firefox address bar
 Find the key called "network.proxy.socks_remote_dns" and set it to true
@@ -121,18 +123,18 @@ Creating a host into a bastion host using ansible.
 =======
 We need to first clone the repository.
 ```
-[cloud-user@khabiryubikeytest bastion]$ git clone https://github.com/khabiruddin/bastion.git
-[cloud-user@khabiryubikeytest bastion]$ ls
+[cloud-user@test bastion]$ git clone https://github.com/khabiruddin/bastion.git
+[cloud-user@test bastion]$ ls
 README.md  bastion  bastion.yml  hosts  ssh.config
-[cloud-user@khabiryubikeytest bastion]$ 
+[cloud-user@test bastion]$ 
 ```
 In this folder we will find a role bastion. Inside the bastion role folder, we need to edit the
 bastion/var/main.yml file. In this file we will place username and public key following way. The 
 following is an example only. Please change this file with your own username and corresponding public key.
 ```
-[cloud-user@khabiryubikeytest vars]$ pwd
+[cloud-user@test vars]$ pwd
 /home/cloud-user/bastion/bastion/vars
-[cloud-user@khabiryubikeytest vars]$ cat main.yml
+[cloud-user@test vars]$ cat main.yml
 ---
 user:
    - { name: khabir, pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQAcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu
@@ -140,14 +142,18 @@ user:
 ztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY
 0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' }
 # vars file for bastion
-[cloud-user@khabiryubikeytest vars]$
+[cloud-user@test vars]$
 ```
 Ansible will read the username and public key from this file.
 Now we will run the ansible-playbook. 
 ```
-[cloud-user@khabiryubikeytest bastion]$ ansible-playbook bastion.yml
+[cloud-user@test bastion]$ ansible-playbook bastion.yml
 ```
 This will make this host a bastion host. Through this bastion host we can access internal machine.
+For that we need to download ssh.config file in our local machine from git repo and then from the 
+local machine we do the following.
+[local-user@local-machine /home]$ ssh -F ssh.config internal_server1
+ 
 
 
 
