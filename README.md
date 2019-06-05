@@ -114,6 +114,37 @@ internal webservers.
 
 Creating a host into a bastion host using ansible.
 =======
+We need to first clone the repository.
+```
+[cloud-user@khabiryubikeytest bastion]$ git clone https://github.com/khabiruddin/bastion.git
+[cloud-user@khabiryubikeytest bastion]$ ls
+README.md  bastion  bastion.yml  hosts  ssh.config
+[cloud-user@khabiryubikeytest bastion]$ 
+```
+In this folder we will find a role bastion. Inside the bastion role folder, we need to edit the
+bastion/var/main.yml file. In this file we will place username and public key following way.
+```
+[cloud-user@khabiryubikeytest vars]$ pwd
+/home/cloud-user/bastion/bastion/vars
+[cloud-user@khabiryubikeytest vars]$ cat main.yml
+---
+user:
+   - { name: khabir, pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQAcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu
++KwZNObG2nGl9jm5NIUKrP8VY3NDODsq1zpT1gMp6dkqFIbOqVZnd2bfodK05aMoGABt/CWZG9n3HX8iIN4lA4CMnKMawB67fQ
+ztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY
+0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' }
+# vars file for bastion
+[cloud-user@khabiryubikeytest vars]$
+```
+Ansible will read the username and public key from this file.
+Now we will run the ansible-playbook. 
+```
+[cloud-user@khabiryubikeytest bastion]$ ansible-playbook bastion.yml
+```
+This will make this host a bastion host. Through this bastion host we can access internal machine.
+
+
+
 
 
 
