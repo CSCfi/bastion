@@ -32,6 +32,8 @@ $ sudo apt-get install -y nc
 Once, nc is installed, we need a ssh config file, which openssh client
 will use when connecting to remote servers through bastion host.
 An example of a fictitious ssh.config file can be following.
+Also one predefined ssh.conf file included with this git repository. 
+Please edit this file accordingly, before using.
 
 ssh.config
 =========
@@ -48,13 +50,16 @@ ProxyCommand ssh -q user@bashtion.example.com nc %h %p
 ```
 Explanation of the each options.
 =========
-Host: is the keyword.
-internal_server1: is a user defined name. This name we will use when we ssh to the
-internal server.
-HostName: either ip or fully qualified domain name of the internal server.
-User: the user of the internal server.
-In the ProxyCommand line user is the user of bashtion.example.com, bashion host.
-nc is the netcat command and %h is host of internal server and %p is port.
+```
+Host: 			is the keyword.
+internal_server1: 	is a user defined name. This name we will use when we ssh to the internal server.
+HostName: 		either ip or fully qualified domain name of the internal server.
+internal_user1: 	the user of the internal server.
+User:			In the ProxyCommand line, user is the user of bashtion.example.com, bashion host.
+nc:			is the netcat command
+%h:			is host of internal server
+%p:			is port.
+```
 
 Now we can use following command to connect internal servers through bastion host
 by following way.
