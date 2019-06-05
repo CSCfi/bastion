@@ -122,7 +122,8 @@ README.md  bastion  bastion.yml  hosts  ssh.config
 [cloud-user@khabiryubikeytest bastion]$ 
 ```
 In this folder we will find a role bastion. Inside the bastion role folder, we need to edit the
-bastion/var/main.yml file. In this file we will place username and public key following way.
+bastion/var/main.yml file. In this file we will place username and public key following way. The 
+following is an example only. Please change this file with your own username and corresponding public key.
 ```
 [cloud-user@khabiryubikeytest vars]$ pwd
 /home/cloud-user/bastion/bastion/vars
