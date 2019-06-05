@@ -112,4 +112,9 @@ Now we can browse http://internal_server1 in our browser.
 This way we can access all of our internal host and browse all of our
 internal webservers.
 
+Creating a host into a bastion host using ansible.
+=======
+
+
+
 
