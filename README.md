@@ -151,6 +151,9 @@ Now we will run the ansible-playbook.
 This playbook will create a user khabir, and place khabir's public key in 
 /home/khabir/.ssh/authorized_keys file so that user khabir can pass Through this bastion 
 host to access internal machine.
+
+Connecting to internal machines
+==
 Next part is we need to download ssh.config file from git repo in our local machine and then from the 
 local machine we will connect to internal machines. If in the ssh.config file has following settings
 ```
@@ -159,7 +162,7 @@ HostName 192.168.1.33
 User internal_user1
 ProxyCommand ssh -q khabir@bashtion.example.com nc %h %p
 ```
-then we can connect our internal_server1 though the bastion.example.com. 
+then we can connect our internal_server1 though the bastion.example.com like below.
 ```
 [local-user@local-machine /home]$ ssh -F ssh.config internal_server1
 [internal_user1@internal_server1 /home/internal_user1] $
