@@ -111,7 +111,7 @@ We need also set Firefox to use the DNS through that proxy.
 Type in about:config in the Firefox address bar
 Find the key called "network.proxy.socks_remote_dns" and set it to true
 
-Now we can browse http://internal_server1 in our browser.
+Now we can browse http://internal_server1 or http://internal_server2 in our browser and so on.
 
 This way we can access all of our internal host and browse all of our
 internal webservers.
@@ -148,9 +148,11 @@ Now we will run the ansible-playbook.
 ```
 [cloud-user@test bastion]$ ansible-playbook bastion.yml
 ```
-This will make this host a bastion host. Through this bastion host we can access internal machine.
-For that we need to download ssh.config file in our local machine from git repo and then from the 
-local machine we do the following. If in the ssh.config file has following settings
+This playbook will create a user khabir, and place khabir's public key in 
+/home/khabir/.ssh/authorized_keys file so that user khabir can pass Through this bastion 
+host to access internal machine.
+Next part is we need to download ssh.config file from git repo in our local machine and then from the 
+local machine we will connect to internal machines. If in the ssh.config file has following settings
 ```
 Host internal_server1
 HostName 192.168.1.33
