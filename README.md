@@ -167,6 +167,9 @@ then we can connect our internal_server1 though the bastion.example.com like bel
 [local-user@local-machine /home]$ ssh -F ssh.config internal_server1
 [internal_user1@internal_server1 /home/internal_user1] $
 ```
+Architechture diagram
+==
+An architechture diagram has been included in this repo for the ease of understanding.
 
 
  
