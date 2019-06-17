@@ -6,7 +6,7 @@
     mode: '0700'
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
-  with_items: "{{ user }}"
+  with_items: "{{ users }}"
 
 - name: creating authorized_key file for user
   file:
@@ -15,10 +15,10 @@
     mode: '0600'
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
-  with_items: "{{ user }}"
+  with_items: "{{ users }}"
 
 - name: placing public key in the authorized_keys file.
   copy:
    content: "{{ item.pubkey }}"
    dest: /home/{{ item.name }}/.ssh/authorized_keys
-  with_items: "{{ user }}"
+  with_items: "{{ users }}"

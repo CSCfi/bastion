@@ -1,0 +1,12 @@
+---
+- hosts: KhabirBastion
+  become: yes
+  become_method: sudo
+  become_user: cloud-user
+  gather_facts: yes
+  
+  tasks: 
+    - name: installing nginx web server for testing purpose
+      yum: 
+        name: nginx
+        state: installed

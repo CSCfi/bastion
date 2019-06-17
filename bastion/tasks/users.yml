@@ -3,5 +3,5 @@
   user: 
      name: "{{ item.name }}"
      create_home: yes
-  with_items: "{{ user }}"
+  with_items: "{{ users }}"
 # user.yml 
