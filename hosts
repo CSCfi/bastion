@@ -1,4 +1,4 @@
 [all]
-bastion ansible_ssh_host=195.148.31.234
+bastion
 node1
 node2
