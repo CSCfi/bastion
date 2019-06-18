@@ -20,18 +20,6 @@ Background
 Here in this document, we will use proxycommand option of openssh to
 connect our internal servers through bastion server.
 
-first of all, we need netcat installed in our bastion server.
-On rpm based system we can install nc by
-```
-$ sudo yum install -y nc
-```
-On the other hand, on deb based systems (debian, ubuntu) we can do following.
-```
-$ sudo apt-get install -y nc
-```
-Once, nc is installed, we need a ssh config file, openssh client
-will use this ssh.config file when connecting to remote servers through bastion host.
-
 Also one predefined ssh.conf file included with this git repository. 
 Please edit this file accordingly, before using.
 
@@ -40,23 +28,32 @@ An example of a fictitious ssh.config file can be following.
 ssh.config
 =========
 ```
-Host internal_server1
-HostName 192.168.1.33
-User internal_user1
-ProxyCommand ssh -q user@bashtion.example.com nc %h %p
+Host bastion
+  HostName 195.148.31.234
+  User cloud-user
 
-Host internal_server2
-HostName 192.168.1.48
-User internal_user2
-ProxyCommand ssh -q user@bashtion.example.com nc %h %p
+Host node1
+  HostName 192.168.1.33
+  User cloud-user
+  ProxyCommand ssh -F ssh.config khuddin@195.148.31.234 nc %h %p
+
+Host node2
+  HostName 192.168.1.48
+  User cloud-user
+  ProxyCommand ssh -F ssh.config khabir@195.148.31.234 nc %h %p
+
+Host *
+  ControlPersist 30m
+  GSSAPIAuthentication no
+  StrictHostKeyChecking yes
 ```
 Explanation of the each options.
 =========
 ```
 Host: 			is the keyword.
-internal_server1: 	is a user defined name. This name we will use when we ssh to the internal server.
+node1: 	      is a user defined name. This name we will use when we ssh to the internal server.
 HostName: 		either ip or fully qualified domain name of the internal server.
-internal_user1: 	the user of the internal server.
+cloud-user: 	the user of the node1.
 User:			In the ProxyCommand line, user is the user of bashtion.example.com, bashion host.
 nc:			is the netcat command
 %h:			is host of internal server
@@ -70,13 +67,13 @@ Usages
 =========
 Now time to access internal servers through bastion host. To do so we do following.
 ```
-$ ssh -F ssh.config internal_server1
-[internal_user1@internal_server1 ~]$
+$ ssh -F ssh.config node1
+[cloud-user@node1 ~]$
 ```
 Similarly, to connect to the second server.
 ```
-$ ssh -F ssh.config internal_server2
-[internal_user2@internal_server2 ~]$
+$ ssh -F ssh.config node2
+[cloud-user@node2 ~]$
 ```
 And this way, we can ssh other system in the internal network, just we need to edit
 ssh.config file and add the internal systems information there.
@@ -89,10 +86,10 @@ We will use two methods to access webpages through the bastion host.
 We can use ssh local port forwarding technique to access web pages through bastion
 host. To do that, we need to do following on local machine.
 ```
-$ ssh -L 8080:localhost:80 -F ssh.config internal_server1
+$ ssh -L 8080:localhost:80 -F ssh.config node1
 ```
 Then we need to browse http:localhost:8080 in our browser which will go through
-bastion host to destination, internal_server1.
+bastion host to destination, node1.
 
 2. ssh dynamic port forwarding.
 To use dynamic port forwarding we need to use socks proxy server.
@@ -101,7 +98,7 @@ through bastion will be forwarded to destination host.
 
 In the local machines, we run following.
 ```
-$ ssh -D 1080 bastion.example.com
+$ ssh -D 1080 bastion
 ```
 Now we have to configure our browser's proxy setting. In firefox,
 We will tick Manual proxy configuration. We will only put "localhost"
@@ -111,7 +108,7 @@ We need also set Firefox to use the DNS through that proxy.
 Type in about:config in the Firefox address bar
 Find the key called "network.proxy.socks_remote_dns" and set it to true
 
-Now we can browse http://internal_server1 or http://internal_server2 in our browser and so on.
+Now we can browse http://node1 or http://node2 in our browser and so on.
 
 This way we can access all of our internal host and browse all of our
 internal webservers.
@@ -121,10 +118,8 @@ Creating a host into a bastion host using ansible.
 We can make a host into bastion host easily. We can use ansible to automate our all settings.
 To make a host into bastion host, we need to first clone the repository.
 ```
-[cloud-user@test bastion]$ git clone https://github.com/khabiruddin/bastion.git
-[cloud-user@test bastion]$ ls
-README.md  bastion  bastion.yml  hosts  ssh.config
-[cloud-user@test bastion]$ 
+[cloud-user@bastion]$ git clone https://github.com/khabiruddin/bastion.git
+ 
 ```
 In this folder we will find a role bastion. Inside the bastion role folder, we need to edit the
 bastion/var/main.yml file. In this file we will place username and public key following way. The 
@@ -157,21 +152,52 @@ Connecting to internal machines
 Next part is we need to download ssh.config file from git repo in our local machine and then from the 
 local machine we will connect to internal machines. If in the ssh.config file has following settings
 ```
-Host internal_server1
-HostName 192.168.1.33
-User internal_user1
-ProxyCommand ssh -q khabir@bashtion.example.com nc %h %p
+Host node1
+  HostName 192.168.1.33
+  User cloud-user
+  ProxyCommand ssh -F ssh.config khuddin@195.148.31.234 nc %h %p
 ```
 then we can connect our internal_server1 though the bastion.example.com like below.
 ```
-[local-user@local-machine /home]$ ssh -F ssh.config internal_server1
-[internal_user1@internal_server1 /home/internal_user1] $
+[local-user@local-machine /home]$ ssh -F ssh.config node1
+[cloud-user@node1 /home/cloud-user] $
 ```
 Architechture diagram
 ==
 An architechture diagram has been included in this repo for the ease of understanding.
 
-
+Running command and Installing packages through bastion host
+==
+We can run command and install packages in node1 or node2 through our bastion host by ansible.
+To do so we need add parameters in ansible.conf file. An example of ansible.conf can be following.
+```
+╰$ cat ansible.cfg
+[ssh_connection]
+# Because I am using Yubikeys. Therefore I need to load the key along with ssh.
+# Also I need to load ssh.config file as well.
+ssh_args = -F ssh.config -I /usr/local/lib/opensc-pkcs11.so -o StrictHostKeyChecking=no
+# If you dont use yubikey then you need use the following instead of above line.
+# ssh_args = -F ssh.config -o StrictHostKeyChecking=no
+[defaults]
+roles_path    = roles/
+library = /usr/share/ansible
+ansible_python_interpreter = "/usr/bin/env python"
+bin_ansible_callbacks = True
+callback_plugins = callback_plugins/
+callback_whitelist = timer
+```
+Also an inventory file can be like
+```
+╰$ cat hosts
+[all]
+bastion
+node1
+node2
+```
+Now we can run any playbook in node1 or node2 by following.
+```
+╰$ ansible-playbook -i hosts node1.yml
+```
  
 
 
