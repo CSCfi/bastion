@@ -1,8 +1,8 @@
 ---
-- hosts: KhabirBastion
+- hosts: node1
   become: yes
   become_method: sudo
-  become_user: cloud-user
+  become_user: root
   gather_facts: yes
   
   tasks: 
