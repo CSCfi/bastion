@@ -193,7 +193,7 @@ bastion
 node1
 node2
 ```
-Now we can run any playbook in node1 or node2 by following.
+Now we can run any playbook in node1 or node2 by following. Just create roles and add with playbook.
 ```
 ╰$ ansible-playbook -i hosts node1.yml
 ```
