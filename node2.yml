@@ -5,8 +5,5 @@
   become_user: root
   gather_facts: yes
   
-  tasks: 
-    - name: installing nginx web server for testing purpose
-      yum: 
-        name: nginx
-        state: installed
+#  roles:
+#    - web
