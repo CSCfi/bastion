@@ -24,6 +24,8 @@ Also one predefined ssh.conf file included with this git repository.
 Please edit this file accordingly, before using.
 
 An example of a fictitious ssh.config file can be following.
+Please change all the settings accordingly to your settings. Most of the options
+are self-explanatory.
 
 ssh.config
 =========
@@ -115,7 +117,7 @@ internal webservers.
 
 Creating a host into a bastion host using ansible.
 =======
-We can make a host into bastion host easily. We can use ansible to automate our all settings.
+We can make a host into bastion host easily. We can use ansible to automate our most of settings.
 To make a host into bastion host, we need to first clone the repository.
 ```
 [cloud-user@bastion]$ git clone https://github.com/khabiruddin/bastion.git
@@ -125,9 +127,9 @@ In this folder we will find a role bastion. Inside the bastion role folder, we n
 bastion/var/main.yml file. In this file we will place username and public key following way. The 
 following is an example only. Please change this file with your own username and corresponding public key.
 ```
-[cloud-user@test vars]$ pwd
+[local-user@yourhost vars]$ pwd
 /home/cloud-user/bastion/bastion/vars
-[cloud-user@test vars]$ cat main.yml
+[local-user@yourhost vars]]$ cat main.yml
 ---
 user:
    - { name: khabir, pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQAcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu
@@ -135,13 +137,13 @@ user:
 ztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY
 0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' }
 # vars file for bastion
-[cloud-user@test vars]$
+[local-user@yourhost vars]]$ 
 ```
 Similarly, we can put multiple username and corresponding public key in the same file.
 Ansible will read the username and public key from this file.
 Now we will run the ansible-playbook. 
 ```
-[cloud-user@test bastion]$ ansible-playbook bastion.yml
+[local-user@yourhost vars]$ ansible-playbook -i host bastion.yml
 ```
 This playbook will create a user khabir, and place khabir's public key in 
 /home/khabir/.ssh/authorized_keys file so that user khabir can pass Through this bastion 
@@ -162,9 +164,6 @@ then we can connect our internal_server1 though the bastion.example.com like bel
 [local-user@local-machine /home]$ ssh -F ssh.config node1
 [cloud-user@node1 /home/cloud-user] $
 ```
-Architechture diagram
-==
-An architechture diagram has been included in this repo for the ease of understanding.
 
 Running command and Installing packages through bastion host
 ==
@@ -198,6 +197,10 @@ Now we can run any playbook in node1 or node2 by following.
 ```
 ╰$ ansible-playbook -i hosts node1.yml
 ```
+Architechture diagram
+==
+An architechture diagram Architecture.pdf has been included in this repo for the ease of understanding. 
+
  
 
 
