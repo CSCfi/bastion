@@ -1,5 +1,0 @@
----
-- include: pkg.yml
-- include: users.yml
-- include: file.yml
-# tasks file for bastion

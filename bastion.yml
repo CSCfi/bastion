@@ -4,6 +4,14 @@
   become_method: sudo
   become_user: root
   gather_facts: yes
+  vars_files:
+    - ./host_vars/bastion/users.yml
+
+  tasks:
+    - name: Installing nmap-ncat
+      yum:
+        name: nmap-ncat
+        state: latest
 
   roles:
-   - bastion
+   - users

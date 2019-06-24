@@ -1,0 +1,5 @@
+--- 
+- name: Installing sudo package
+  yum:
+    name: sudo
+    state: latest
