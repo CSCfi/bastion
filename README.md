@@ -1,4 +1,4 @@
-What is Bastion host:
+What is Bastion host
 =====================
 
 Bastion host is useful when we need to connect to number of our internal
@@ -49,14 +49,14 @@ Host *
   GSSAPIAuthentication no
   StrictHostKeyChecking yes
 ```
-Explanation of the each options.
+Explanation of the each options
 =========
 ```
 Host: 			is the keyword.
 node1: 	      is a user defined name. This name we will use when we ssh to the internal server.
 HostName: 		either ip or fully qualified domain name of the internal server.
 cloud-user: 	the user of the node1.
-User:			In the ProxyCommand line, user is the user of bashtion.example.com, bashion host.
+User:			In the ProxyCommand line, user is the user of bastion.example.com, bashion host.
 nc:			is the netcat command
 %h:			is host of internal server
 %p:			is port.
@@ -80,7 +80,7 @@ $ ssh -F ssh.config node2
 And this way, we can ssh other system in the internal network, just we need to edit
 ssh.config file and add the internal systems information there.
 
-Accessing web-pages through bastion host.
+Accessing web-pages through bastion host
 =========
 We will use two methods to access webpages through the bastion host.
 
@@ -102,7 +102,7 @@ In the local machines, we run following.
 ```
 $ ssh -D 1080 bastion
 ```
-Now we have to configure our browser's proxy setting. In firefox,
+Now we have to configure our browser's proxy setting. In Firefox,
 We will tick Manual proxy configuration. We will only put "localhost"
 in the SOCKS Host field and port 1080. We will not touch any other field.
 We need also set Firefox to use the DNS through that proxy.
@@ -115,7 +115,7 @@ Now we can browse http://node1 or http://node2 in our browser and so on.
 This way we can access all of our internal host and browse all of our
 internal webservers.
 
-Creating a host into a bastion host using ansible.
+Creating a host into a bastion host using Ansible
 =======
 We can make a host into bastion host easily. We can use ansible to automate our most of settings.
 To make a host into bastion host, we need to first clone the repository.
@@ -146,7 +146,7 @@ Now we will run the ansible-playbook.
 [local-user@yourhost vars]$ ansible-playbook -i host bastion.yml
 ```
 This playbook will create a user khabir, and place khabir's public key in 
-/home/khabir/.ssh/authorized_keys file so that user khabir can pass Through this bastion 
+/home/khabir/.ssh/authorized_keys file so that user khabir can pass through this bastion 
 host to access internal machine.
 
 Connecting to internal machines
@@ -172,10 +172,7 @@ To do so we need add parameters in ansible.conf file. An example of ansible.conf
 ```
 ╰$ cat ansible.cfg
 [ssh_connection]
-# Because I am using Yubikeys. Therefore I need to load the key along with ssh.
-# Also I need to load ssh.config file as well.
 ssh_args = -F ssh.config -I /usr/local/lib/opensc-pkcs11.so -o StrictHostKeyChecking=no
-# If you dont use yubikey then you need use the following instead of above line.
 # ssh_args = -F ssh.config -o StrictHostKeyChecking=no
 [defaults]
 roles_path    = roles/
