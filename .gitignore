@@ -1,0 +1,4 @@
+# git ignore file 
+# the following files we dont want to upload
+*.retry
+.DS_Store
