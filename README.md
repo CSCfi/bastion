@@ -157,7 +157,7 @@ local machine we will connect to internal machines. If in the ssh.config file ha
 Host node1
   HostName 192.168.1.33
   User cloud-user
-  ProxyCommand ssh -F ssh.config khuddin@195.148.31.234 nc %h %p
+  ProxyCommand ssh -F ssh.config 195.148.31.234 nc %h %p
 ```
 then we can connect our internal_server1 though the bastion.example.com like below.
 ```
