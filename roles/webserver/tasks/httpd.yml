@@ -1,0 +1,9 @@
+---
+- name: Installing httpd web server
+  yum:
+    name: httpd
+    state: latest
+  notify:
+  - httpd service
+
+# httpd web server
