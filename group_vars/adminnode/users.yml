@@ -1,4 +1,4 @@
 ---
 users:
-  - { name: khabir }
-  - { name: khuddin }
+  - { name: user1 }
+  - { name: user2 }
