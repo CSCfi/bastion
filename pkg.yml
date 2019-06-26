@@ -1,4 +1,22 @@
 ---
-- yum: 
-    name: nmap-ncat
-    state: latest
+- name: installing nmap-ncat
+  hosts: bastions
+  become: yes
+  become_method: sudo
+  become_user: root
+  tasks:
+    - yum: 
+        name: nmap-ncat
+        state: latest
+   
+- name: Installing some common packages
+  hosts: all
+  become: yes
+  become_method: sudo
+  become_user: root
+
+  tasks: 
+    - yum:
+        name: "{{ item }}"
+        state: latest
+      with_items: "{{ packages }}"

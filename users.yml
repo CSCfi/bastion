@@ -1,8 +1,9 @@
 ---
-- hosts: webserver
+- hosts: all
   become: yes
   become_method: sudo
   become_user: root
+  ignore_errors: true
   gather_facts: yes
 
   roles:

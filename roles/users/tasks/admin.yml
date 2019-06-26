@@ -1,0 +1,8 @@
+---
+- name: addding users in admin group
+  hosts: all:!bastion
+  user: 
+     name: "{{ item.name }}"
+     groups: wheel
+  with_items: 
+    - "{{ users }}"

@@ -1,6 +1,0 @@
----
-- name: adding user in wheel group
-  user: 
-    name: "{{ item.name }}"
-    groups: wheel
-  with_items: "{{ users }}"

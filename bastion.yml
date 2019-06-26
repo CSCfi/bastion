@@ -1,15 +1,9 @@
 ---
-- hosts: bastion
+- hosts: bastions
   become: yes
   become_method: sudo
   become_user: root
   gather_facts: yes
-
-  tasks:
-    - name: Installing nmap-ncat
-      yum:
-        name: nmap-ncat
-        state: latest
 
   roles:
    - users
