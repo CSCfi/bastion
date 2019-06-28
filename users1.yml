@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  become_user: root
+  ignore_errors: true
+  gather_facts: yes
+  vars_files:
+    - group_vars/all/user1.yml
+
+  roles:
+   - users1

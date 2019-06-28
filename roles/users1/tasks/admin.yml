@@ -1,0 +1,34 @@
+---
+- name: adding users in admin group
+  hosts: all:!bastions
+  user: 
+     name: "{{ item.name }}"
+     groups: wheel
+  with_items:
+    - "{{ users }}"
+  when: "'admin' in item.group.name"
+  tags:
+    - admin
+
+- name: adding users in apache group
+  hosts: all:!bastions
+  user: 
+     name: "{{ item.name }}"
+     groups: apache 
+#  with_items: 
+#    - "{{ users }}"
+  loop: "{{ users }}"
+  when: "'webadmin' in item.group.name"
+  tags:
+    - webadmin
+- name: removing inactive users
+  hosts: all:!bastions
+  user: 
+     name: "{{ item.name }}"
+     state: absent
+  loop: "{{ users }}"
+  when: "'absent' in item.status"
+#  with_items: 
+#    - "{{ users }}"
+  tags: 
+    - remove

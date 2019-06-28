@@ -3,3 +3,4 @@
 *.retry
 .DS_Store
 test.yml
+.ssh_controlmaster

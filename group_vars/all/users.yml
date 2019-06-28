@@ -1,8 +1,36 @@
 ---
 users:
-  - { name: user1, pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC80pwZji+QCyXRHxqG+dilz6rOMp7aimARIWPITgXYBdE/fP3Qdfn6fkcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu+KwZNObG2nGl9jm5NIUKrP8VY3NDODsq1zpT1gMp6dkqFIbOqVZnd2bfodK05aMoGABt/CWZG9n3HX8iIN4lA4CMnKMawB67fQztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' }
-  - { name: user2, pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC80pwZji+QCyXRHxqG+dilz6rOMp7aimARIWPITgXYBdE/fP3Qdfn6fkcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu+KwZNObG2nGl9jm5NIUKrP8VY3NDODsq1zpT1gMp6dkqFIbOqVZnd2bfodK05aMoGABt/CWZG9n3HX8iIN4lA4CMnKMawB67fQztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' }
-  - { name: user3, pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC80pwZji+QCyXRHxqG+dilz6rOMp7aimARIWPITgXYBdE/fP3Qdfn6fkcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu+KwZNObG2nGl9jm5NIUKrP8VY3NDODsq1zpT1gMp6dkqFIbOqVZnd2bfodK05aMoGABt/CWZG9n3HX8iIN4lA4CMnKMawB67fQztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' }
-  - { name: user4, pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC80pwZji+QCyXRHxqG+dilz6rOMp7aimARIWPITgXYBdE/fP3Qdfn6fkcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu+KwZNObG2nGl9jm5NIUKrP8VY3NDODsq1zpT1gMp6dkqFIbOqVZnd2bfodK05aMoGABt/CWZG9n3HX8iIN4lA4CMnKMawB67fQztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' }
-  - { name: user5, pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC80pwZji+QCyXRHxqG+dilz6rOMp7aimARIWPITgXYBdE/fP3Qdfn6fkcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu+KwZNObG2nGl9jm5NIUKrP8VY3NDODsq1zpT1gMp6dkqFIbOqVZnd2bfodK05aMoGABt/CWZG9n3HX8iIN4lA4CMnKMawB67fQztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' }
-  - { name: user6, pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC80pwZji+QCyXRHxqG+dilz6rOMp7aimARIWPITgXYBdE/fP3Qdfn6fkcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu+KwZNObG2nGl9jm5NIUKrP8VY3NDODsq1zpT1gMp6dkqFIbOqVZnd2bfodK05aMoGABt/CWZG9n3HX8iIN4lA4CMnKMawB67fQztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' }
+  - name: user1 
+    group:  
+      - wheel
+      - apache
+    status: present
+    pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC80pwZji+QCyXRHxqG+dilz6rOMp7aimARIWPITgXYBdE/fP3Qdfn6fkcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu+KwZNObG2nGl9jm5NIUKrP8VY3NDODsq1zpT1gMp6dkqFIbOqVZnd2bfodK05aMoGABt/CWZG9n3HX8iIN4lA4CMnKMawB67fQztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' 
+  - name: user2 
+    group: 
+      - wheel 
+      - apache
+    status: present
+    pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC80pwZji+QCyXRHxqG+dilz6rOMp7aimARIWPITgXYBdE/fP3Qdfn6fkcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu+KwZNObG2nGl9jm5NIUKrP8VY3NDODsq1zpT1gMp6dkqFIbOqVZnd2bfodK05aMoGABt/CWZG9n3HX8iIN4lA4CMnKMawB67fQztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' 
+  - name: user3 
+    group: 
+      - wheel 
+      - sys 
+      - yadayada
+    status: present
+    pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC80pwZji+QCyXRHxqG+dilz6rOMp7aimARIWPITgXYBdE/fP3Qdfn6fkcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu+KwZNObG2nGl9jm5NIUKrP8VY3NDODsq1zpT1gMp6dkqFIbOqVZnd2bfodK05aMoGABt/CWZG9n3HX8iIN4lA4CMnKMawB67fQztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' 
+  - name: user4 
+    group:  
+      - normaluser 
+    status: present
+    pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC80pwZji+QCyXRHxqG+dilz6rOMp7aimARIWPITgXYBdE/fP3Qdfn6fkcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu+KwZNObG2nGl9jm5NIUKrP8VY3NDODsq1zpT1gMp6dkqFIbOqVZnd2bfodK05aMoGABt/CWZG9n3HX8iIN4lA4CMnKMawB67fQztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' 
+  - name: user5 
+    group: 
+      - normaluser
+    status: absent
+    pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC80pwZji+QCyXRHxqG+dilz6rOMp7aimARIWPITgXYBdE/fP3Qdfn6fkcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu+KwZNObG2nGl9jm5NIUKrP8VY3NDODsq1zpT1gMp6dkqFIbOqVZnd2bfodK05aMoGABt/CWZG9n3HX8iIN4lA4CMnKMawB67fQztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' 
+  - name: user6 
+    group: 
+      - normaluser 
+    status: absent
+    pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC80pwZji+QCyXRHxqG+dilz6rOMp7aimARIWPITgXYBdE/fP3Qdfn6fkcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu+KwZNObG2nGl9jm5NIUKrP8VY3NDODsq1zpT1gMp6dkqFIbOqVZnd2bfodK05aMoGABt/CWZG9n3HX8iIN4lA4CMnKMawB67fQztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' 
