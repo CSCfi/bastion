@@ -1,5 +1,0 @@
----
-- include: users.yml
-- include: file.yml
-- include: admin.yml
-# tasks file for bastion

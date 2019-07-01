@@ -1,7 +1,9 @@
 ---
-- name: adding users.
+- name: Adding users to hosts
   user: 
-     name: "{{ item.name }}"
-     create_home: yes
+    name: "{{ item.name }}"
+    create_home: yes
+    groups: "{{ item.name }}"
+    append: yes 
   with_items: "{{ users }}"
 # user.yml 

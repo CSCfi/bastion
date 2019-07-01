@@ -1,5 +1,0 @@
----
-webadmin:
-  - { name: user4 }
-  - { name: user5 }
-  - { name: user6 }

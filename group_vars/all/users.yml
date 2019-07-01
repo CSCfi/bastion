@@ -15,8 +15,7 @@ users:
   - name: user3 
     group: 
       - wheel 
-      - sys 
-      - yadayada
+      - sys
     status: present
     pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC80pwZji+QCyXRHxqG+dilz6rOMp7aimARIWPITgXYBdE/fP3Qdfn6fkcjs9FV8yqVXL+zxdc9U4i6FROHGd3SLXepYFu+KwZNObG2nGl9jm5NIUKrP8VY3NDODsq1zpT1gMp6dkqFIbOqVZnd2bfodK05aMoGABt/CWZG9n3HX8iIN4lA4CMnKMawB67fQztNcuVRhPKYmgNwrjHyz7OazdOxs5QtoMXbhwnL9GftZqGwKb2PvyWusiaf1gMVScwzJG2/1Qe82Us4uF7RllvuP8E+7c9TGVY0AIMmrlZatn4ony+lcJGXYJkIIUJFCpDNkhKpHmxSNyeuuOCb2ii5' 
   - name: user4 

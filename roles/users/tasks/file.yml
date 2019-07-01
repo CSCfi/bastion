@@ -1,5 +1,5 @@
 ---
-- name: creating .ssh directory for the user
+- name: Creating .ssh directory for the user
   file:
     path: /home/{{ item.name }}/.ssh
     state: directory
@@ -8,7 +8,7 @@
     group: "{{ item.name }}"
   with_items: "{{ users }}"
 
-- name: creating authorized_key file for user
+- name: Creating authorized_key file for user
   file:
     path: /home/{{ item.name }}/.ssh/authorized_keys
     state: touch
@@ -17,7 +17,7 @@
     group: "{{ item.name }}"
   with_items: "{{ users }}"
 
-- name: placing public key in the authorized_keys file.
+- name: Placing public key in the authorized_keys file
   copy:
    content: "{{ item.pubkey }}"
    dest: /home/{{ item.name }}/.ssh/authorized_keys
