@@ -33,7 +33,9 @@ We also need to change the ssh.config file and populate bastion host
 ip/fqdn and other nodes ip/fqdn.
 
 Now we need to run following command from our localhost.
+'''
 $ ansible-playbook -i inventories/hosts site.yml
+'''
 
 Architechture diagram
 ==
