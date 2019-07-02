@@ -1,22 +1,21 @@
 What is Bastion host
-=====================
-
-Bastion host is useful when we need to connect to number of our internal
-servers from internet through that bastion host.
-Bastion host just works like a jumphost.
-Bastion host itself normally has limited port open. Only required services
-are run in an bastion host to limit attackers hack the bastion host as
-well as internal systems.
-
-We will create a bastion host, so that through the bastion host we can connect
-to our internal servers. It has couple of advantages. 
-First one is, it saves the floating ip address.
-Then later is, internal server does not need floating ip address to connect to them.
+====
+Bastion host just works like a jumphost, through which, we can connect
+our internal servers.
 
 More info can be found on bastion host on https://en.wikipedia.org/wiki/Bastion_host
 
-Background
-=========
+Benefit of using Bastion host
+===
+It has some of advantages. 
+First of all, it saves the floating ip address.
+Then, internal server does not need floating ip address to connect to them.
+Moreover, Bastion host itself normally has limited port open. Only required services
+are run in an bastion host to limit attackers hack the bastion host as
+well as internal systems.
+
+How to create a bastion host
+===
 Here in this document, we will use proxycommand option of openssh to
 connect our internal servers through bastion server.
 
