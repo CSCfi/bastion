@@ -1,7 +1,7 @@
 What is Bastion host
 ====
 Bastion host just works like a jumphost, through which, we can connect
-our internal servers.
+other servers.
 
 More info can be found on bastion host on https://en.wikipedia.org/wiki/Bastion_host
 
@@ -27,10 +27,17 @@ An example ssh.config file has been included in this git repo.
 
 How to configure a host into bastion host
 ===
+This git repo contains ansible playbook to make a host into bastion host.
+We need to change group_vars/all/users.yml. 
+We also need to change the ssh.config file and populate bastion host 
+ip/fqdn and other nodes ip/fqdn.
+
+Now we need to run following command from our localhost.
+$ ansible-playbook -i inventories/hosts site.yml
 
 Architechture diagram
 ==
-An architechture diagram Architecture.pdf has been included in this repo for the ease of understanding. 
+An architechture diagram Architecture.pdf has been included in this repo for the sake of clarity. 
 
  
 
