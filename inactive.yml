@@ -4,5 +4,6 @@
 
   tasks:
     - user: 
-        name: "{{ user1 }}"
+        name: "{{ item.name }}"
         state: absent
+      with_items: "{{ users }}"
