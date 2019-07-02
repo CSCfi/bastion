@@ -1,0 +1,9 @@
+---
+- name: Set authorized key taken from file
+  authorized_key:
+    user: "{{ item.name }}"
+    state: present
+    key: "{{ item.pubkey }}"
+    manage_dir: yes
+  with_items: 
+    - "{{ users }}"
