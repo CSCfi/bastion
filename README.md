@@ -40,4 +40,4 @@ $ ansible-playbook -i inventories/hosts site.yml
 
 Architecture diagram
 ==
-An architecture diagram [Architecture.pdf](https://github.com/martbhell/bastion/raw/spelling/Architecture.pdf) has been included in this repo for the sake of clarity. 
+An architecture diagram [Architecture.pdf](https://github.com/martbhell/bastion/blob/spelling/Architecture.pdf) has been included in this repo for the sake of clarity. 
