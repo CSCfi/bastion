@@ -1,5 +1,5 @@
 What is a bastion host
-====
+===
 Bastion host just works like a jumphost, through which, we can connect to
 other servers.
 
